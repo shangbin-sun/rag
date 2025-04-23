@@ -18,7 +18,7 @@ documents = Document(
     dataset_path="/home/mnt/sunshangbin/work_dir/rag/code/"
 )
 
-
+documents.create_node_group(name="block", transform=(lambda d: d.split("。")))
 with pipeline() as ppl:
     ppl.retriever = Retriever(
         documents, 
